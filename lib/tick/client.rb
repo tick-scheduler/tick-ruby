@@ -3,7 +3,7 @@ require 'tick/version'
 module Tick
   class Client
     DEFAULT_OPTS = {
-      :host       => 'https://tickscheduler.com',
+      :host       => 'https://api.tickscheduler.com',
       :ssl => {
         :verify => true
       }
