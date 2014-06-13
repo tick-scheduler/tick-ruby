@@ -2,6 +2,7 @@ require 'rubygems'
 
 require 'rspec'
 require 'vcr'
+require 'debugger'
 
 $:.unshift(File.dirname(File.expand_path(__FILE__)))
 
@@ -9,7 +10,7 @@ require File.join(File.dirname(File.expand_path(__FILE__)), "..", "lib", "tick")
 
 Dir['spec/models/*'].each { |f| require File.expand_path(f) }
 
-Tick.api_key = 's3R5xRCE7AXwJDorqXzLBUydJJxrez3iSqWHyLmBf98r'
+Tick.api_key = 'eg8sPhr5L8WpEzsZmicMLTr6mpT2BJFxe8SStNwvs24r'
 
 RSpec.configure do |c|
   def job_params(params = {})
