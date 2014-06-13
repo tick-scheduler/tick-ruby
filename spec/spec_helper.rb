@@ -20,7 +20,7 @@ RSpec.configure do |c|
   end
 
   def single_job_params(params = {})
-    t = Time.new(2014, 6, 7, 12, 37, rand(59))
+    t = Time.new(2014, 6, 7, 12, 37, rand(59)).utc
     job_params('at' => t)
   end
 end

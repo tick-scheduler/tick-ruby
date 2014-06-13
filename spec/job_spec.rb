@@ -34,7 +34,7 @@ describe 'Job#save' do
       new_at = params['at'] + 20
       job.at = new_at
       job.save
-      job.at.should == new_at
+      job.at.should == new_at.iso8601
       job.id.should == job_id
     end
   end

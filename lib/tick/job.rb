@@ -3,7 +3,13 @@ module Tick
     # include Tick::Resource
 
     def save
-      self.class.save(to_hash)
+      if id = (self[:id] || self['id'])
+        response = Tick.client.put("/api/v1/jobs/#{id}", to_hash)
+        merge! response.body
+      else
+        merge! self.class.create(attrs)
+      end
+      self
     end
 
     def cancel
@@ -18,14 +24,6 @@ module Tick
 
       def create(attrs = {})
         process_response Tick.client.post("/api/v1/jobs", attrs)
-      end
-
-      def save(attrs = {})
-        if id = (attrs.delete(:id) || attrs.delete('id'))
-          process_response Tick.client.put("/api/v1/jobs/#{id}", attrs)
-        else
-          create(attrs)
-        end
       end
 
       def destroy(id)
