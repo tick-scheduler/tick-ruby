@@ -12,7 +12,7 @@ gem 'tick-ruby'
 Set your api token:
 
 ```ruby
-Tick.api_token = 'YOUR_TOKEN'
+Tick.api_key = 'YOUR_TOKEN'
 ```
 
 ## Usage
